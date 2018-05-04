@@ -1,0 +1,673 @@
+/*
+Theme Name: simple is best
+Theme URI:
+Description:
+Version: 1
+Author: Kosuke Kageyama
+Author URI:
+*/
+
+
+@import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
+@import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css');
+@import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
+
+HTML,html{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+  padding: 0;
+  margin: 0;
+  margin-bottom: 50px;
+}
+
+/*見出しのフォント*/
+h1,h2,h3,h4,h5,h6,#menu_list a{
+  font-family: "Rounded Mplus 1c";
+}
+
+header h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0;
+  font-family: "Nico Moji";
+  color: #F7FE2E;
+  font-size: 70px;
+}
+
+/*.page_top_fixed{
+  position: fixed;
+  border-bottom: solid 1px #000;
+  z-index: 1501;
+  background-color: rgba( 204, 255, 204, 0.55 );
+}*/
+#header_top{
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  padding: 0;
+  border-bottom: solid 5px #000;
+}
+#header_title {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  /*float: left;*/
+}
+
+#header_title a{
+  text-decoration:none;
+}
+/*#header_sns{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 40%;
+  padding: 0;
+  font-size:0;
+  float: left;
+  font-family: "Nico Moji";
+}
+
+#header_sns .sns_block{
+  margin-top: 2%;
+  margin-bottom: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 45px;
+  height: 45px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 18px;
+  display: inline-block;
+  border: solid 1px #000;
+  border-radius: 26px;
+  text-align: center;
+  font-weight: 900;
+
+}
+
+#header_sns .sns_block > p{
+  margin: 0;
+  padding-top: 25%;
+}
+
+#header_sns .sns_block p > a {
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}*/
+
+.float-clear{
+  clear: both;
+}
+
+
+#header_image{
+background-color: #58FA58;
+text-align: center;
+margin-left: 0;
+margin-right: 0;
+width: 100%;
+margin-bottom: 0px;
+overflow: hidden;
+}
+
+
+
+
+#header_image img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+#menu_list {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+
+  background-color: #000;
+}
+
+#menu_list a{
+  color: #F7FE2E;
+}
+
+#menu_list ul {
+  background-color: #000;
+}
+
+#menu_list > ul {
+  margin-top: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  padding: 0;
+  text-align: center;
+  font-size: 0;
+}
+
+#menu_list ul > li {
+  list-style-type: none; /*リストマークを消す*/
+  display: inline-block; /*要素を右へ回り込ませる。*/
+  padding: 0;
+  height: 40px;
+  width: 100px;
+  position: relative;
+}
+
+#menu_list ul li > a{
+   display: block;  /*li要素内全てをリンク扱いにする。*/
+   text-decoration: none;
+   text-align: center;
+   height: 100%;
+   width: 100%;
+   font-size: 18px;
+}
+
+#menu_list ul li a:hover{
+  background-color: #bbb;
+}
+
+/*初期表示のメニューをマウスアップした際に、メニューの下にサブメニュー表示。*/
+#menu_list ul li > ul{
+  /*メニューの真下に持ってくる設定*/
+  display: none;
+  list-style: none;
+  position: absolute;
+  z-index: 1500; /*メニュを最前面に表示されるようにする。最前面に表示するのはサブメニューからで良い。*/
+  /*メニューの真下に持ってくる設定*/
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*サブメニュー*/
+#menu_list ul li ul li{
+  padding: 0;
+  height: 40px;
+  width: 100px;
+  position: relative;
+  color: #000;
+  transition: .2s;
+
+}
+
+/*サブメニューのサブメニュー*/
+#menu_list ul li ul li ul{
+  display: none;
+  list-style: none;
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  /*メニューの真下に持ってくる設定
+  top: 100%;
+  left: 0;
+  */
+  /*メニューの真横右に持ってくる設定*/
+  top: 0;
+  left: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/*初期表示のメニューをマウスアップした時に子メニューのみを表示。*/
+#menu_list li:hover > ul{
+  display: block;
+}
+
+/*メニューアイコン のデザイン設定*/
+#menu_icon{
+  display: none;
+  background-color: #000;
+  position: relative;
+}
+
+#show_icon_menu{
+  background-color: #A9F5D0;
+  position: absolute;
+  position: relative;
+  z-index: 1500;
+  width: 100%;
+  /*アイコンの真下に表示する。*/
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+#menu_icon_image {
+  height: 38px;
+  width: 38px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menu_icon_image img {
+  height: 100%;
+  width: 100%;
+}
+
+#menu_list_sumaho {
+  display: none;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: auto;
+
+}
+
+#menu_list_sumaho ul {
+  background-color: #bbb;
+  width: 100%;
+}
+
+#menu_list_sumaho li {
+  list-style-type: none; /*リストマークを消す*/
+  height: 38px;
+  width: 100%;
+}
+
+#menu_list_sumaho ul li a {
+  width: 80%;
+  height: 100%;
+  color: #fff;
+}
+
+.font_Rounded{
+  font-family: "Rounded Mplus 1c";
+}
+
+.none{
+  display: none;
+}
+
+.new_menu{
+  position: absolute;
+  width: 100%;
+  background-color: #A9F5D0;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.back_menu{
+  cursor: pointer;
+}
+
+.a_text{
+  width: 90%;
+  margin-right: 0;
+  padding: 0;
+}
+
+/*>マークのデザイン*/
+.next_menu{
+  text-align: right;
+  width:10%;
+  margin: 0;
+}
+
+
+/*初期から非表示にしておくもの*/
+#menu_icon, #menu_list_sumaho, #show_icon_menu{
+  display: none;
+}
+
+/*メニュー一覧がウィンドウサイズ縮小で改行されたらメニュー一覧を非表示にする。*/
+/*メニューアイコンへ変更するため。*/
+@media only screen and (max-width : 1125px){
+  header #menu_list{
+    display: none;
+  }
+  header #menu_icon{
+    display: block;
+  }
+}
+
+/*人気記事、最新記事を表示するエリア*/
+
+/*welcomeのデザイン*/
+#title_welcome{
+  width: 100%;
+  text-align: center;
+}
+
+#title_welcome h1{
+  font-size: 2.5em;
+  font-family: "Mplus 1p";
+}
+
+#title_popularPost,#title_newPost{
+  width: 100%;
+  text-align: left;
+}
+
+#title_popularPost h1,#title_newPost h1{
+  font-size: 2.5em;
+  width: auto;
+  border-bottom: solid 4px #F7FE2E;
+}
+
+#popularArticle_block{
+  margin-top: 100px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 100px;
+}
+  /*とりあえず廃止する*/
+  /*overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+  border: solid 2px #58FA58;
+  padding: 0;
+  position: relative; /*画像に文字を追加する。記事のタイトルとカテゴリー名と投稿日時*/
+  /*z-index: 1;*
+}
+/* とりあえず廃止する
+#popularArticle_block img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  margin: 0px;
+  transition: transform 0.5s linear; /*画像をズームにする。*/
+/*}
+
+#popularArticle_block img:hover {
+  transform: scale(0.5,0.5); /*画像をズームにする*/
+  /*opacity: 0.5;
+}
+
+#popularArticleTitle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+
+}
+
+#popularArticleCategory{
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}*/
+
+.newArticle{
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.newArticle_block{
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 500px;
+  height: 250px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+  background-color: #fff; /*画像をズームした際に背景画像を透過させないようにするため。*/
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.newArticle_block img{
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0px;
+  transition: transform 0.5s linear;
+}
+
+.newArticle_block img:hover{
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+
+.newArticleTitle{
+  position: absolute;
+  /*タイトルを中央配置する start */
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*タイトルを中央配置する end */
+
+}
+
+.newArticleCategory{
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ad_block{
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 500px;
+  height: 250px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0;
+  background-color: #fff; /*画像をズームした際に背景画像を透過させないようにするため。*/
+  position: relative;
+  z-index: 1;
+}
+
+.ad_title{
+  position: absolute;
+  /*タイトルを中央配置する start */
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*タイトルを中央配置する end */
+}
+
+/*スマホ用*/
+@media only screen and (max-width : 500px){
+  #articleList{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #popularArticle_block{
+    width: 95%;
+  }
+
+
+
+  #newArticle{
+    width: 95%
+  }
+
+  .newArticle_block{
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+
+}
+
+footer{
+  margin-top: 50px;
+  border-top: solid 1px #000;
+  margin: 0;
+  padding: 0;
+  width: 100%
+}
+
+.site-info{
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.site-info > p{
+  margin: 0;
+}
+
+/*記事画面 デザイン*/
+#post{
+  margin-bottom: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+}
+
+#article{
+  background-color: rgba( 204, 255, 204, 0.55 );
+  float: left;
+  width: 67%;
+  margin-left: 0;
+  margin-right: 1%;
+}
+
+#article p,h1,h2,h3,h4,h5,h6{
+  width: 100%;
+}
+
+#sidebar{
+  margin-right: 0;
+  margin-left: 1%;
+  width: 250px;
+
+  float: left;
+}
+
+.sidebar-block{
+  margin-bottom: 20px;
+  width: 100%;
+  border: solid 1px #000;
+}
+
+@media only screen and (max-width : 1030px){
+  #article{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #sidebar{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+#title{
+  border: solid 1px #000;
+}
+
+#thumbnail{
+  border: solid 1px #000;
+}
+
+#thumbnail img {
+  margin-left: 0;
+}
+
+#breadcrumbs{
+  border: solid 1px #000;
+}
+
+#breadcrumbs li {
+  display: inline-block;
+}
+
+#read_time{
+  border: solid 1px #000;
+}
+
+#contents{
+  border: solid 1px #000;
+}
+
+#related_post{
+  border: solid 1px #000;
+
+}
+
+#related_post img {
+  margin-left: 0;
+}
+
+#writer_info{
+  border: solid 1px #000;
+}
+
+#comment_form{
+  border: solid 1px #000;
+}
+
+/*404画面 デザイン*/
+
+#not404{
+
+
+
+}
+
+#messeage {
+    background-color: white;
+    border-radius: 10px;
+}
+
+/*共通デザイン*/
+.width100{
+  width: 100%;
+}
+
+.break-all{
+  word-break:break-all;
+}
+
+.main-area{
+  margin-left: 5%;
+  margin-right: 5%;
+}
