@@ -2,9 +2,26 @@
   <?php if(have_comments()): ?>
     <h3 id="comments">Comments</h3>
     <ol class="commets-list">
-      <?php wp_list_comments('avatar_size=48'); ?>
+      <?php
+        $args = array(
+          'style'             => 'ul',
+          'avatar_size'       => 48,
+          'reverse_top_level' => true
+        );
+      wp_list_comments($args); ?>
     </ol>
   <?php endif; ?>
   <hr>
-  <?php comment_form(); ?>
+
+  <?php
+    /*コメントフォームのメールアドレスとwebサイトの項目は削除。
+    　復元したい場合は、function.phpのコメントフォームの不要なデザインを削除する
+    　内に記述してある処理を削除する
+    またメールアドレスと名前を入力必須項目から排除する設定にしてあるので、
+    function.phpの「update_option('require_name_email',0);//メールアドレスと名前を必須ではない設定にする。」
+    の記述を削除するとメールアドレスと名前が必須になる。*/
+    comment_form();
+
+  ?>
+
 </div>

@@ -14,10 +14,18 @@ query_posts(
 );
 if(have_posts()) :
   ?>
-  <ul>
     <?php while (have_posts()) : the_post(); ?>
-      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+      <a href="<?php the_permalink(); ?>" class="related_post">
+        <?php if(has_post_thumbnail()) : ?>
+          <?php the_post_thumbnail(); ?>
+        <?php else : ?>
+          <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.png" alt="No Image">
+        <?php endif; ?>
+        <h1><?php echo get_the_title(); ?></h1>
+        <?php the_excerpt(); ?>
+      </a>
+      <p class="clear_both"></p>
+      <p></p>
     <?php endwhile; ?>
-  </ul>
 <?php endif; ?>
 <?php wp_reset_query(); ?>

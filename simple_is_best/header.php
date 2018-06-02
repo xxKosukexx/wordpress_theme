@@ -68,10 +68,12 @@ bloginfo( 'name' ); ?>
     <!-- </div> -->
 
 
+    <?php if(is_home()): ?>
+      <div id="header_image">
+        <img src=<?php echo get_the_header_image_url();?> alt="ブログイメージ画像です" />
+      </div>
+    <?php endif; ?>
 
-    <div id="header_image">
-      <img src=<?php echo get_the_header_image_url();?> alt="ブログイメージ画像です" />
-    </div>
 
 
     <?php

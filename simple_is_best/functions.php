@@ -3,10 +3,16 @@
 //定数定義ファイル読み込み
 include_once('include.php');
 
-//カスタマイズにオリジナルの項目を追加する
-add_action( 'customize_register', 'origin_customize' );
+/*テーマを有効にした時に呼ばれるアクションフック*/
+add_action( 'after_switch_theme', 'init_customize' );
+function init_customize(){
+  update_option('require_name_email',0);//メールアドレスと名前を必須ではない設定にする。
+}
 
-function origin_customize($wp_customize){
+//カスタマイズにオリジナルの項目を追加する
+add_action( 'customize_register', 'setting_customize' );
+
+function setting_customize($wp_customize){
 
   //記事内カスタマイズセクションの設定
   $wp_customize->add_section( ARTICLE_CUSTOMIZE_SECTION,
@@ -257,14 +263,10 @@ function read_time(){
   global $post;
   $mycontent = $post->post_content;
               $word = mb_strlen(strip_tags($mycontent));
-              $m = floor($word / 600)+1;
-              $s = floor($word % 600 / (600 / 60));
-              $time = ($m == 0 ? '' : $m) ;
-              $times = ($s == 0 ? '' : $s) ;
+              $m = floor($word / 600);
+              $s = floor($word % 600 / 10);
 
-				$str  = "<p class='article-read-time'>
-            		<b><font color=#808080>この記事は約</font></b><b><font color=#cc0000> $time </font></b><b><font color=#808080>分</font></b><b><font color=#cc0000> $times </font></b><b><font color=#808080>秒で読めます。</font></b>
-				</p>";
+				$str  = "<img src=" . get_template_directory_uri() . "/image/readtime_image.png' alt='readtime_image' /> $m m $s s";
         echo $str;
 }
 
@@ -347,4 +349,38 @@ function breadcrumbs(){
 	}
 	echo $str;
 }
+
+/*コメントフォームの不要なデザインを削除する　start*/
+function my_comment_form_remove($arg) {
+$arg['url'] = '';
+$arg['email'] = '';
+return $arg;
+}
+add_filter('comment_form_default_fields', 'my_comment_form_remove');
+
+// 「メールアドレスが公開されることはありません。 * が付いている欄は必須項目です」の文言を削除
+function my_comment_notes_before( $defaults){
+$defaults['comment_notes_before'] = '';
+return $defaults;
+}
+add_filter( "comment_form_defaults", "my_comment_notes_before");
+
+/*「次回のコメントで使用するためブラウザーに自分の名前、メールアドレス、サイトを保存する。 」の文言を削除する。*/
+function comment_remove_cookiescheck($arg) {
+ $arg['cookies'] = '';
+ return $arg;
+}
+add_filter('comment_form_default_fields', 'comment_remove_cookiescheck');
+
+// コメント入力欄の表示順を変更する　コメントと名前の入力欄の入れ替え
+function wp34731_move_comment_field_to_bottom( $fields ) {
+  $comment_field = $fields['comment'];
+  unset( $fields['comment'] );
+  $fields['comment'] = $comment_field;
+
+  return $fields;
+}
+add_filter( 'comment_form_fields', 'wp34731_move_comment_field_to_bottom' );
+/*コメントフォームの不要なデザインを削除する　end*/
+
 ?>

@@ -1,24 +1,24 @@
 <!-- 最新記事表示 start -->
-<div class="newArticle">
+<div class="post_list">
   <?php  $count = 0; //広告表示するためのカウント変数
   //メインループだと最新記事を表示できないので、wp_query()を使用する。
-  
+
    if ( have_posts() ) :
     while ( have_posts() ) :
       the_post(); ?>
 
       <!-- 記事の内容 start-->
       <a href="<?php the_permalink(); ?>">
-        <div class="newArticle_block">
+        <div class="post_list_block">
           <?php if(has_post_thumbnail()) : ?>
             <?php the_post_thumbnail(); ?>
           <?php else : ?>
             <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.png" alt="No Image">
           <?php endif; ?>
-          <div class="newArticleTitle">
+          <div class="post_listTitle">
             <?php echo the_title(); ?>
           </div>
-          <div class="newArticleCategory">
+          <div class="post_listCategory">
             <?php $cat = get_the_category(); ?>
             <small><?php echo $cat[0]->name; ?></small>
           </div>
@@ -31,7 +31,7 @@
       $count++;
       if (($count % 3) == 0) : ?>
         <div class="ad_block">
-          <?php get_option(POST_LIST_AD); ?>
+          <?php echo get_option(POST_LIST_AD); ?>
           <div class="ad_title">
             スポンサーリンク
           </div>

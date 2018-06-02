@@ -12,12 +12,14 @@ Author URI:
 @import url('https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css');
 @import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
 
+
 HTML,html{
   margin: 0;
   padding: 0;
 }
 
 body{
+    background-color: #FFFF00;
     padding: 0;
     margin: 0;
 }
@@ -29,7 +31,7 @@ header{
 }
 
 /*見出しのフォント*/
-h1,h2,h3,h4,h5,h6,#menu_list a{
+h1,h2,h3,h4,h5,h6,#menu_list a,{
   font-family: "Rounded Mplus 1c";
 }
 
@@ -40,7 +42,7 @@ header h1 {
   margin-right: 0px;
   padding: 0;
   font-family: "Nico Moji";
-  color: #F7FE2E;
+  color: #000;
   font-size: 70px;
 }
 
@@ -120,13 +122,14 @@ header h1 {
 }
 
 
-#header_image{
-background-color: #58FA58;
+#header_image {
 text-align: center;
 margin-left: 0;
 margin-right: 0;
 width: 100%;
 margin-bottom: 0px;
+background-color: #000;
+border-bottom: solid 5px #FFFF00;
 overflow: hidden;
 }
 
@@ -134,8 +137,9 @@ overflow: hidden;
 
 
 #header_image img {
-  height: 100%;
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -150,6 +154,7 @@ overflow: hidden;
 
 #menu_list a{
   color: #F7FE2E;
+  font-family: "Rounded Mplus 1c";
 }
 
 #menu_list ul {
@@ -297,6 +302,7 @@ overflow: hidden;
   color: #fff;
 }
 
+/*jsのメニュー用のクラス*/
 .font_Rounded{
   font-family: "Rounded Mplus 1c";
 }
@@ -304,6 +310,7 @@ overflow: hidden;
 .none{
   display: none;
 }
+/*jsのメニュー用のクラス*/
 
 .new_menu{
   position: absolute;
@@ -368,9 +375,10 @@ overflow: hidden;
 }
 
 #title_popularPost h1,#title_newPost h1{
+  font-family: "Rounded Mplus 1c";
   font-size: 2.5em;
   width: auto;
-  border-bottom: solid 4px #F7FE2E;
+  border-bottom: solid 4px #000;
 }
 
 #popularArticle_block{
@@ -421,47 +429,66 @@ overflow: hidden;
   left: 0;
 }*/
 
-.newArticle{
+.post_list{
   margin-left: 2%;
   margin-right: 2%;
   text-align: center;
   overflow: hidden;
 }
 
-.newArticle_block{
+.post_list_block{
   margin-left: 4%;
   margin-right: 4%;
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 500px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   display: inline-block;
   overflow: hidden;
   padding: 0;
-  background-color: #fff; /*画像をズームした際に背景画像を透過させないようにするため。*/
+  border-radius: 150px;
+  background-color: #fff;
   position: relative;
   z-index: 1;
 }
 
+/*記事一覧をマウスオーバーした際に記事をバウンドさせる。*/
+.post_list_block:hover{
+  animation: key1 .3s ease infinite alternate;
+}
+
+/*記事の一覧をバウンドさせるアニメーション用のキーフレイム*/
+@keyframes key1{
+  0% {transform: translateY(0px);}
+  100% {transform: translateY(-10px);}
+}
 
 
-.newArticle_block img{
-  max-height: 100%;
-  max-width: 100%;
+
+.post_list_block img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
   margin: 0px;
-  transition: transform 0.5s linear;
+  /*transition: transform 0.5s linear;*/
 }
 
-.newArticle_block img:hover{
-  transform: scale(1.2);
-  opacity: 0.5;
+.post_list_block img:hover{
+  /*transform: scale(1.2);
+  opacity: 0.5;*/
 }
 
-.newArticleTitle{
+.post_listTitle{
+  font-size: 1.6em;
+  font-weight:700;
+  color: #FFFF00;
+  width: 100%;
+  font-family: "Rounded Mplus 1c";
+  background-color: rgba( 0, 0, 0, 0.45 );
   position: absolute;
   /*タイトルを中央配置する start */
-  top: 50%;
+  top: 40%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -472,7 +499,7 @@ overflow: hidden;
 
 }
 
-.newArticleCategory{
+.post_listCategory{
   background-color: #fff;
   position: absolute;
   top: 0;
@@ -484,18 +511,22 @@ overflow: hidden;
   margin-right: 4%;
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 500px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   display: inline-block;
   overflow: hidden;
   padding: 0;
-  background-color: #fff; /*画像をズームした際に背景画像を透過させないようにするため。*/
+  border-radius: 150px;
+  border: solid 1px #FFFF00;
   position: relative;
   z-index: 1;
 }
-
+.ad_block:hover{
+    animation: key1 .3s ease infinite alternate;
+}
 .ad_title{
   position: absolute;
+  background-color: rgba( 0, 0, 0, 0.45 );
   /*タイトルを中央配置する start */
   top: 50%;
   left: 50%;
@@ -520,14 +551,14 @@ overflow: hidden;
 
 
 
-  #newArticle{
+  #newArticle{ /*いらなくない？*/
     width: 95%
   }
 
-  .newArticle_block{
-    margin-left: 0;
+  .post_list_block{
+    /*margin-left: 0;
     margin-right: 0;
-    width: 100%;
+    width: 100%;*/
   }
 
 
@@ -554,29 +585,67 @@ footer{
 /*記事画面 デザイン*/
 #post{
   margin-bottom: 50px;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
 }
 
-#article{
-  background-color: rgba( 204, 255, 204, 0.55 );
-  float: left;
-  width: 67%;
-  margin-left: 0;
-  margin-right: 1%;
+#post #article{
+  background-color: #fff;
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
 }
 
-#article p,h1,h2,h3,h4,h5,h6{
+#post #article h1,#post #article h2,#post #article h3,
+#post #article h4,#post #article h5,#post #article h6{
+  font-family: "Rounded Mplus 1c";
   width: 100%;
 }
 
-#sidebar{
-  margin-right: 0;
-  margin-left: 1%;
-  width: 250px;
+#post #title,#post #breadcrumbs,#post #read_time,
+#post #contents,#post #related_post,#post #thumbnail,
+#post #writer,#post #comment_form {
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+#post #article #contents h2{
+  font-size: 1.7em;
+  background: #F7FE2E; /*背景色*/
+  padding: 2%;/*文字周りの余白*/
+  color: black;/*文字を白に*/
+  border-radius: 0.5em;/*角の丸み*/
+  width: 96%;
+}
 
-  float: left;
+#post #article #contents h3{
+position: relative;
+padding-left: 6%;
+border-bottom: solid 2px #ffca2c;
+width: 94%;
+
+}
+#post #article #contents h3:after {/*吹き出しのちょこんと出た部分*/
+content: '';
+display: block;
+position: absolute;
+left: 20px;
+height: 0;
+width: 0;
+border-top: 7px solid transparent;
+border-bottom: 7px solid transparent;
+border-left: 12px solid #ffca2c;
+top: 50%;
+-moz-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+}
+
+#post #sidebar{
+  width: 100%;
+  padding: 0;
 }
 
 .sidebar-block{
@@ -585,64 +654,218 @@ footer{
   border: solid 1px #000;
 }
 
-@media only screen and (max-width : 1030px){
-  #article{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  #sidebar{
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
+#post #title{
+  text-align: center;
+  font-size: 2em;
+  color: #000;
 }
 
-
-#title{
-  border: solid 1px #000;
+#post #thumbnail{
+  text-align:center;
+  overflow: hidden;
+  height: 300px;
+  background-color: #F7FE2E;
+  border-radius: 14px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
 
-#thumbnail{
-  border: solid 1px #000;
+#post #thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-#thumbnail img {
-  margin-left: 0;
+#post #breadcrumbs{
+  font-size: 0.5em;
+  font-family: "Rounded Mplus 1c";
 }
 
-#breadcrumbs{
-  border: solid 1px #000;
+#post #breadcrumbs a{
+  text-decoration: none;
+  color: #F7FE2E;
 }
 
-#breadcrumbs li {
+#post #breadcrumbs li {
   display: inline-block;
+  margin-left: 3px;
 }
 
-#read_time{
-  border: solid 1px #000;
+#post #breadcrumbs ul{
+  padding: 0;
+  border-bottom: solid 1px #F7FE2E;
 }
 
-#contents{
-  border: solid 1px #000;
-}
-
-#related_post{
-  border: solid 1px #000;
+#post #read_time{
+  font-family: "Rounded Mplus 1c";
 
 }
 
-#related_post img {
-  margin-left: 0;
+#post #read_time img{
+  width: 18px;
+  height: 18px;
 }
 
-#writer_info{
-  border: solid 1px #000;
+#post #contents{
+  font-family: "Rounded Mplus 1c";
+  word-break: break-all;
+  border-bottom: solid 1px #F7FE2E;
 }
 
-#comment_form{
-  border: solid 1px #000;
+#post #related_post{
+
+}
+
+#post #related_post a{
+  text-decoration: none;
+  color: #000;
+}
+
+#post #related_post > h1{
+  font-size: 2em;
+  text-align: center;
+}
+
+#post .related_post,#post .related_post img,#post #writer{
+  border-radius: 10px;
+}
+
+#post .related_post{
+  background-color:#ffffff;
+  width: 100%;
+  border: solid 5px #F7FE2E;
+  overflow: hidden;
+  display:block;
+}
+
+#post .related_post:hover{
+  cursor:pointer;
+  filter: alpha(opacity=60);        /* ie lt 8 */
+  -ms-filter: "alpha(opacity=60)";  /* ie 8 */
+  -moz-opacity:0.6;                 /* FF lt 1.5, Netscape */
+  -khtml-opacity: 0.6;              /* Safari 1.x */
+  opacity:0.6;
+  zoom:1;
+}
+
+#post .related_post img{
+  width: 40%;
+  height: 200px;
+  margin-right: 5px;
+  float: left;
+}
+
+#post .related_post h1{
+  font-size: 1.3em;
+  text-align: center;
+}
+
+#post #writer{
+  background-color: #000;
+  overflow: hidden;
+  flex: auto;
+}
+
+#post #writer #writer_avater{
+  margin-top: 45px;
+  margin-left: 3%;
+  width: 22%;
+  height: 120px;
+  float: left;
+}
+
+#post #writer #writer_avater img{
+  border-radius: 60px;
+}
+
+
+#post #writer #writer_info{
+  width: 66%;
+  margin: 3%;
+  color: #fff;
+
+  float: left;
+}
+
+#post #writer #writer_info h1{
+  color: #F7FE2E;
+}
+
+/*コメントフォームデザイン*/
+
+/*フォントの適用*/
+#comment_area{
+
+}
+#respond label{
+	display:block;
+}
+/*入力欄のデザイン設定*/
+#respond input,
+#respond textarea{
+  padding: 2%;
+	width: 95.5%;
+}
+
+/*名前の横の*を表示しない*/
+#respond .comment-form-author span.required{
+  display: none;
+}
+
+/*コメント送信のデザイン*/
+#respond input[type="submit"]{
+  cursor: pointer;
+  height: 100%;
+	width: 100%;
+  border-style: none;
+  color: #FFFF00;
+  background-color: #000;
+  font-size: 1.5em;
+}
+
+.says{
+	display:none;
+}
+.comment-author,
+.comment-meta{
+	display:inline-block;
+}
+
+/*記事に書き込まれたコメントを表示するときのデザイン*/
+
+#comment_area .commets-list .comment{
+  border: solid 2px #FFFF00;
+  margin-bottom: 5px;
+  padding: 2%;
+}
+
+#comment_area .commets-list .comment ul.children,
+#comment_area ol.commets-list{
+  list-style:none;
+}
+#comment_area .commets-list .comment ul.children{
+  margin-top: 10px;
+}
+
+#comment_area .commets-list .comment-author img{
+  display: block;
+}
+
+#comment_area .commets-list .comment-meta a{
+  pointer-events: none;
+  text-decoration: none;
+  color: #000;
+}
+
+#comment_area .commets-list .comment .reply{
+  width: 100px;
+  text-align: center;
+  background-color: #000;
+}
+
+#comment_area .commets-list .comment .reply a{
+  display: block;
+  text-decoration: none;
+  color: #FFFF00;
 }
 
 /*404画面 デザイン*/
@@ -658,16 +881,16 @@ footer{
     border-radius: 10px;
 }
 
-/*共通デザイン*/
-.width100{
-  width: 100%;
-}
 
-.break-all{
-  word-break:break-all;
-}
+
+
+/*共通デザイン*/
 
 .main-area{
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.clear_both{
+  clear: both;
 }
