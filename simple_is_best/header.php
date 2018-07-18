@@ -17,6 +17,7 @@ bloginfo( 'name' ); ?>
 <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" media="screen" />
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/page-top.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/menu-icon.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/width_height_equal.js"></script>
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -37,7 +38,10 @@ bloginfo( 'name' ); ?>
 </head>
 <script type="text/javascript">
   //page_top_fixed_width(); 使わなくなったけど一応残しておく。
+  /*画面縮小時のメニューアイコン用*/
   menu_icon();
+  /*画面縮小時に記事一覧のブロックの大きさを調整する*/
+  width_height_equal();
 </script>
 <body style="background-image: url(<?php echo get_the_background_image_url(); ?>);" >
 
@@ -70,8 +74,10 @@ bloginfo( 'name' ); ?>
 
     <?php if(is_home()): ?>
       <div id="header_image">
-        <img src=<?php echo get_the_header_image_url();?> alt="ブログイメージ画像です" />
+        <img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
+        <p><?php echo bloginfo('description'); ?></p>
       </div>
+
     <?php endif; ?>
 
 

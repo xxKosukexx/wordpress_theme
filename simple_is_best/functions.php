@@ -7,7 +7,28 @@ include_once('include.php');
 add_action( 'after_switch_theme', 'init_customize' );
 function init_customize(){
   update_option('require_name_email',0);//メールアドレスと名前を必須ではない設定にする。
+  //１ページに表示する件数を９としたいが、広告が設定されている場合は広告文を減らした件数を１ページに表示する件数とする。
+  if(get_the_ad()){
+    update_option('posts_per_page',7);
+  }else{
+    update_option('posts_per_page',9);
+  }
 }
+
+/*カスタムヘッダーstart*/
+$custom_header = array(
+ 'default-image' => get_bloginfo('template_url').'/image/default_header_image.png',
+ 'random-default' => true,
+ 'width' => 960,
+ 'height' => 600,
+ 'flex-height' => true,
+ 'flex-width' => true,
+ 'default-text-color' => 'FFFF00',
+ 'header-text' => false,
+ 'uploads' => true,
+);
+add_theme_support( 'custom-header', $custom_header );
+/*カスタムヘッダー*/
 
 //カスタマイズにオリジナルの項目を追加する
 add_action( 'customize_register', 'setting_customize' );
@@ -147,10 +168,15 @@ function get_the_background_image_url(){
   return esc_url( get_theme_mod( BACKGROUND_IMAGE_URL ) );
 }
 
+//背景画像を設定できるようにするための関数
+function get_the_ad(){
+  return get_option(POST_LIST_AD);
+}
+
 /*サイドバーとフッターのウィジェット機能を有効にする*/
 function bj_register_sidebars(){
 //ウィジェット機能を有効にする
-  if ( function_exists('register_sidebar') ){
+  /*if ( function_exists('register_sidebar') ){
     register_sidebar( array(
       'id'            => 'sidebar', //ウィジェットのID
       'name'          => 'サイドバー', //ウィジェットの名前
@@ -162,7 +188,7 @@ function bj_register_sidebars(){
     ) );
 
 
-  }
+  }*/
 
   if ( function_exists('register_sidebar') ){
     register_sidebar( array(

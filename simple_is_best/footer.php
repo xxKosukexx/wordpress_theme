@@ -1,11 +1,11 @@
   <footer>
     <?php if ( is_active_sidebar( 'footer' ) ) : ?>
-     <ul id="footer_widget">
+     <div id="footer_widget" style="list-style-image: url(<?php echo get_template_directory_uri(); ?>/image/list-mark.gif);">
     	<?php dynamic_sidebar( 'footer' ); ?>
-     </ul>
+    </div>
     <?php endif; ?>
     <div class="site-info">
-       <p>© 2018 - <?php bloginfo('name'); ?> All rights reserved.</p>
+       <p>© <?php bloginfo('name'); ?> All rights reserved.</p>
    </div>
 
   </footer>

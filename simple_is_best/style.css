@@ -19,45 +19,26 @@ HTML,html{
 }
 
 body{
+    font-family: "Rounded Mplus 1c";
+    word-break: break-all;
     background-color: #FFFF00;
     padding: 0;
     margin: 0;
 }
 
 header{
+  width: 100%;
   padding: 0;
   margin: 0;
   margin-bottom: 50px;
 }
 
-/*見出しのフォント*/
-h1,h2,h3,h4,h5,h6,#menu_list a,{
-  font-family: "Rounded Mplus 1c";
-}
-
-header h1 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding: 0;
-  font-family: "Nico Moji";
-  color: #000;
-  font-size: 70px;
-}
-
-/*.page_top_fixed{
-  position: fixed;
-  border-bottom: solid 1px #000;
-  z-index: 1501;
-  background-color: rgba( 204, 255, 204, 0.55 );
-}*/
 #header_top{
   margin-left: 0;
   margin-right: 0;
   width: 100%;
   padding: 0;
-  border-bottom: solid 5px #000;
+
 }
 #header_title {
   margin-top: 0;
@@ -69,12 +50,23 @@ header h1 {
   padding-bottom: 10px;
   width: 100%;
   text-align: center;
-  font-size: 12px;
   /*float: left;*/
 }
 
 #header_title a{
   text-decoration:none;
+}
+
+#header_title h1 {
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0;
+  font-family: "Nico Moji";
+  color: #000;
+  font-size: 8em;
 }
 /*#header_sns{
   margin-top: 0;
@@ -127,20 +119,48 @@ text-align: center;
 margin-left: 0;
 margin-right: 0;
 width: 100%;
+height: auto;
+max-height: 600px;
 margin-bottom: 0px;
 background-color: #000;
-border-bottom: solid 5px #FFFF00;
+border-top: solid 5px #000;
+border-bottom: solid 5px #000;
 overflow: hidden;
+position: relative;
 }
 
-
-
-
 #header_image img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
   margin-left: auto;
   margin-right: auto;
   object-fit: contain;
   display: block;
+  background-color: #000;
+  filter: alpha(opacity=60);        /* ie lt 8 */
+  -ms-filter: "alpha(opacity=60)";  /* ie 8 */
+  -moz-opacity:0.6;                 /* FF lt 1.5, Netscape */
+  -khtml-opacity: 0.6;              /* Safari 1.x */
+  opacity:0.6;
+  zoom:1;
+}
+
+#header_image p{
+  color: #FFFF00;
+  width: 100%;
+  height: 100%;
+  font-size: 3em;
+  position: absolute;
+  /*タイトルを中央配置する start */
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  /*タイトルを中央配置する end */
 }
 
 #menu_list {
@@ -148,13 +168,7 @@ overflow: hidden;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-
   background-color: #000;
-}
-
-#menu_list a{
-  color: #F7FE2E;
-  font-family: "Rounded Mplus 1c";
 }
 
 #menu_list ul {
@@ -163,9 +177,9 @@ overflow: hidden;
 
 #menu_list > ul {
   margin-top: 0;
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
   padding: 0;
   text-align: center;
   font-size: 0;
@@ -181,10 +195,12 @@ overflow: hidden;
 }
 
 #menu_list ul li > a{
+	  color: #F7FE2E;
    display: block;  /*li要素内全てをリンク扱いにする。*/
+	padding-top: 6px;
    text-decoration: none;
    text-align: center;
-   height: 100%;
+   height: 32px;
    width: 100%;
    font-size: 18px;
 }
@@ -256,6 +272,7 @@ overflow: hidden;
   position: relative;
   z-index: 1500;
   width: 100%;
+  overflow: hidden;
   /*アイコンの真下に表示する。*/
   top: 100%;
   left: 0;
@@ -347,7 +364,7 @@ overflow: hidden;
 
 /*メニュー一覧がウィンドウサイズ縮小で改行されたらメニュー一覧を非表示にする。*/
 /*メニューアイコンへ変更するため。*/
-@media only screen and (max-width : 1125px){
+@media only screen and (max-width : 1000px){
   header #menu_list{
     display: none;
   }
@@ -365,7 +382,7 @@ overflow: hidden;
 }
 
 #title_welcome h1{
-  font-size: 2.5em;
+  font-size: 6em;
   font-family: "Mplus 1p";
 }
 
@@ -375,8 +392,7 @@ overflow: hidden;
 }
 
 #title_popularPost h1,#title_newPost h1{
-  font-family: "Rounded Mplus 1c";
-  font-size: 2.5em;
+  font-size: 4em;
   width: auto;
   border-bottom: solid 4px #000;
 }
@@ -446,11 +462,19 @@ overflow: hidden;
   display: inline-block;
   overflow: hidden;
   padding: 0;
-  border-radius: 150px;
+  border-radius: 50%;
   background-color: #fff;
   position: relative;
   z-index: 1;
 }
+
+.post_list_block a{
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 
 /*記事一覧をマウスオーバーした際に記事をバウンドさせる。*/
 .post_list_block:hover{
@@ -483,8 +507,7 @@ overflow: hidden;
   font-size: 1.6em;
   font-weight:700;
   color: #FFFF00;
-  width: 100%;
-  font-family: "Rounded Mplus 1c";
+  width: 90%;
   background-color: rgba( 0, 0, 0, 0.45 );
   position: absolute;
   /*タイトルを中央配置する start */
@@ -494,112 +517,66 @@ overflow: hidden;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   margin:0;
-  padding:0;
-  /*タイトルを中央配置する end */
-
-}
-
-.post_listCategory{
-  background-color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.ad_block{
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 300px;
-  height: 300px;
-  display: inline-block;
-  overflow: hidden;
-  padding: 0;
-  border-radius: 150px;
-  border: solid 1px #FFFF00;
-  position: relative;
-  z-index: 1;
-}
-.ad_block:hover{
-    animation: key1 .3s ease infinite alternate;
-}
-.ad_title{
-  position: absolute;
-  background-color: rgba( 0, 0, 0, 0.45 );
-  /*タイトルを中央配置する start */
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
+  padding:100em;
   /*タイトルを中央配置する end */
 }
 
-/*スマホ用*/
-@media only screen and (max-width : 500px){
-  #articleList{
-    margin-left: 0;
-    margin-right: 0;
-  }
 
-  #popularArticle_block{
-    width: 95%;
-  }
-
-
-
-  #newArticle{ /*いらなくない？*/
-    width: 95%
-  }
-
-  .post_list_block{
-    /*margin-left: 0;
-    margin-right: 0;
-    width: 100%;*/
-  }
-
-
+/*ページネーションのデザインstart*/
+.post_list .pagination, #comment_pagenation{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-footer{
-  margin-top: 50px;
-  border-top: solid 1px #000;
-  margin: 0;
-  padding: 0;
-  width: 100%
+.post_list .pagination a,#comment_pagenation a{
+  text-decoration: none;
+  color: #000;
 }
 
-.site-info{
-  margin-right: 10%;
-  margin-left: 10%;
-  width: 80%;
+.post_list .pagination a:hover{
+  background-color: #000;
+  color: #FFFF00;
 }
 
-.site-info > p{
-  margin: 0;
+#comment_pagenation a:hover{
+  background-color: #000;
+  color: #fff;
 }
+
+.post_list .page-numbers,#comment_pagenation .page-numbers{
+  border: solid 1px #000;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.post_list .pagination .current{
+  background-color: #000;
+  color: #FFFF00;
+}
+
+#comment_pagenation .current{
+  background-color: #000;
+  color: #fff;
+}
+/*ページネーションのデザインend*/
 
 /*記事画面 デザイン*/
-#post{
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 700px;
-}
 
-#post #article{
+
+#post{
   background-color: #fff;
   width: 100%;
   border-radius: 25px;
   overflow: hidden;
+  max-width: 700px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#post #article h1,#post #article h2,#post #article h3,
-#post #article h4,#post #article h5,#post #article h6{
-  font-family: "Rounded Mplus 1c";
+#post h1,#post h2,#post h3,
+#post h4,#post h5,#post h6{
   width: 100%;
 }
 
@@ -609,49 +586,6 @@ footer{
   width: 94%;
   margin-left: 3%;
   margin-right: 3%;
-}
-#post #article #contents h2{
-  font-size: 1.7em;
-  background: #F7FE2E; /*背景色*/
-  padding: 2%;/*文字周りの余白*/
-  color: black;/*文字を白に*/
-  border-radius: 0.5em;/*角の丸み*/
-  width: 96%;
-}
-
-#post #article #contents h3{
-position: relative;
-padding-left: 6%;
-border-bottom: solid 2px #ffca2c;
-width: 94%;
-
-}
-#post #article #contents h3:after {/*吹き出しのちょこんと出た部分*/
-content: '';
-display: block;
-position: absolute;
-left: 20px;
-height: 0;
-width: 0;
-border-top: 7px solid transparent;
-border-bottom: 7px solid transparent;
-border-left: 12px solid #ffca2c;
-top: 50%;
--moz-transform: translateY(-50%);
--webkit-transform: translateY(-50%);
--ms-transform: translateY(-50%);
-transform: translateY(-50%);
-}
-
-#post #sidebar{
-  width: 100%;
-  padding: 0;
-}
-
-.sidebar-block{
-  margin-bottom: 20px;
-  width: 100%;
-  border: solid 1px #000;
 }
 
 #post #title{
@@ -677,7 +611,6 @@ transform: translateY(-50%);
 
 #post #breadcrumbs{
   font-size: 0.5em;
-  font-family: "Rounded Mplus 1c";
 }
 
 #post #breadcrumbs a{
@@ -695,24 +628,64 @@ transform: translateY(-50%);
   border-bottom: solid 1px #F7FE2E;
 }
 
-#post #read_time{
-  font-family: "Rounded Mplus 1c";
-
-}
-
 #post #read_time img{
   width: 18px;
   height: 18px;
 }
 
 #post #contents{
-  font-family: "Rounded Mplus 1c";
-  word-break: break-all;
   border-bottom: solid 1px #F7FE2E;
 }
 
-#post #related_post{
+#post #contents img{
+  max-width: 100%; /*記事画面の画像がはみ出さないようにする*/
+  object-fit: contain;
+  border-radius: 5px;
+}
 
+#post #contents h2{
+  font-size: 1.7em;
+  background: #F7FE2E; /*背景色*/
+  padding: 2%;/*文字周りの余白*/
+  color: black;/*文字を白に*/
+  border-radius: 0.5em;/*角の丸み*/
+  width: 96%;
+}
+
+#post #contents h3{
+position: relative;
+padding-left: 40px;
+padding-right: 2%;
+border-bottom: solid 2px #ffca2c;
+width: 92%;
+}
+/*画面縮小時記事中のh3が画面からはみ出すのを防ぐため、縮小するたびに調整する*/
+@media only screen and (max-width : 500px){
+  #post #contents h3{
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width : 290px){
+  #post #contents h3{
+    width: 75%;
+  }
+}
+#post #contents h3:after{/*吹き出しのちょこんと出た部分*/
+content: '';
+display: block;
+position: absolute;
+left: 20px;
+height: 0;
+width: 0;
+border-top: 7px solid transparent;
+border-bottom: 7px solid transparent;
+border-left: 12px solid #ffca2c;
+top: 50%;
+-moz-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
 }
 
 #post #related_post a{
@@ -721,7 +694,7 @@ transform: translateY(-50%);
 }
 
 #post #related_post > h1{
-  font-size: 2em;
+  font-size: 3.5em;
   text-align: center;
 }
 
@@ -762,7 +735,7 @@ transform: translateY(-50%);
 #post #writer{
   background-color: #000;
   overflow: hidden;
-  flex: auto;
+  display:flex;
 }
 
 #post #writer #writer_avater{
@@ -770,7 +743,6 @@ transform: translateY(-50%);
   margin-left: 3%;
   width: 22%;
   height: 120px;
-  float: left;
 }
 
 #post #writer #writer_avater img{
@@ -782,7 +754,6 @@ transform: translateY(-50%);
   width: 66%;
   margin: 3%;
   color: #fff;
-
   float: left;
 }
 
@@ -792,10 +763,6 @@ transform: translateY(-50%);
 
 /*コメントフォームデザイン*/
 
-/*フォントの適用*/
-#comment_area{
-
-}
 #respond label{
 	display:block;
 }
@@ -868,13 +835,165 @@ transform: translateY(-50%);
   color: #FFFF00;
 }
 
+/*固定ページデザインstart*/
+#page{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  max-width: 700px;
+  background-color: #fff;
+  margin-bottom: 50px;
+  border-radius: 25px;
+}
+
+#page #title{
+  text-align: center;
+  font-size: 2em;
+  color: #000;
+}
+
+#page #contents{
+  border-bottom: solid 1px #F7FE2E;
+  padding: 2em;
+}
+
+#page #contents img {
+  max-width: 100%; /*記事画面の画像がはみ出さないようにする*/
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+#page #contents h2{
+  font-size: 1.7em;
+  background: #F7FE2E; /*背景色*/
+  padding: 2%;/*文字周りの余白*/
+  color: black;/*文字を白に*/
+  border-radius: 0.5em;/*角の丸み*/
+  width: 96%;
+}
+
+#page #contents h3{
+position: relative;
+padding-left: 40px;
+padding-right: 2%;
+border-bottom: solid 2px #ffca2c;
+width: 92%;
+}
+/*画面縮小時記事中のh3が画面からはみ出すのを防ぐため、縮小するたびに調整する*/
+@media only screen and (max-width : 500px){
+  #page #contents h3{
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width : 290px){
+  #page #contents h3{
+    width: 75%;
+  }
+}
+#page #contents h3:after {/*吹き出しのちょこんと出た部分*/
+content: '';
+display: block;
+position: absolute;
+left: 20px;
+height: 0;
+width: 0;
+border-top: 7px solid transparent;
+border-bottom: 7px solid transparent;
+border-left: 12px solid #ffca2c;
+top: 50%;
+-moz-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+}
+/*固定ページデザインend*/
+
+
+/*フッターウェジェットデザイン*/
+
+footer{
+  margin-top: 50px;
+  border-top: solid 1px #000;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #000;
+}
+
+footer #footer_widget{
+  width: 90%;
+  margin-top: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0;
+  color: #fff;
+}
+
+footer #footer_widget > div{
+  border: solid 1px #FFFF00;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+footer #footer_widget div > h4{
+  color: #000;
+  margin: 0;
+  padding: 3%;
+  width: 94%;
+  background-color: #FFFF00;
+  text-align: center;
+  font-size: 2em;
+}
+
+footer #footer_widget div > div,
+footer #footer_widget div > ul{
+  margin: 3%;
+  width: 94%;
+}
+
+footer #footer_widget a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.3em;
+}
+
+footer #footer_widget li{
+  width: 85%;
+}
+
+footer #footer_widget a:hover{
+    animation: footer-li-color 1s infinite alternate;
+}
+
+@-webkit-keyframes footer-li-color{
+  0% { color: #fff; }
+  100% { color: #FFFF00; }
+}
+
+
+.site-info{
+  color: #fff;
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.site-info > p{
+  margin: 0;
+}
+
 /*404画面 デザイン*/
 
 #not404{
-
-
-
+  text-align: center;
 }
+
+#title404{
+  font-family: "Nico Moji";
+  font-size: 16em;
+}
+
 
 #messeage {
     background-color: white;
@@ -887,9 +1006,94 @@ transform: translateY(-50%);
 /*共通デザイン*/
 
 .main-area{
+  width: 90%;
   margin-left: 5%;
   margin-right: 5%;
 }
+/*レスポンシブデザイン用iphone7とか*/
+@media only screen and (max-width : 1000px){
+  .main-area{
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+	/*記事画面*/
+	#post{
+		max-width: 1000px;
+		width:100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+  /*記事一覧*/
+  .post_list_block{
+    width: 100%;
+    margin: 0;
+  }
+  /*記事タイトル*/
+	.post_listTitle{
+		font-size: 4em;
+	}
+  /*メニュー一覧*/
+  #menu_icon_image{
+    height: 100px;
+    width: 100px;
+  }
+	#show_icon_menu{
+		font-size: 3em;
+	}
+	/*ページネーション記事一覧・コメント*/
+	.post_list .page-numbers,#comment_pagenation .page-numbers{
+		font-size: 4em;
+	}
+	/*記事start*/
+	#post #title{
+		font-size: 2.5em;
+	}
+	#post #read_time{
+		font-size: 1.5em;
+	}
+	#post #read_time img{
+  width: 36px;
+  height: 36px;
+}
+	#post #thumbnail{
+  height: 500px;
+}
+	#post #breadcrumbs{
+  font-size: 1em;
+}
+	/*固定ページも*/
+	#post #contents,#page #contents{
+		font-size:1.5em;
+	}
+  #post #contents h2,#page #contents h2{
+    font-size: 2.1em;
+  }
+  #post #contents h3,#page #contents h3{
+    font-size:1.8em;
+  }
+	#post #contents h3:after, #page #contents h3:after{/*吹き出しのちょこんと出た部分*/
+		left:3px;
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		border-left: 25px solid #ffca2c;
+	}
+	#post #writer{
+		display:block;
+	}
+	#post #writer #writer_avater{
+		width:100%;
+		text-align:center;
+	}
+	#post #writer #writer_info{
+		width:96%;
+	}
+	#post #writer #writer_info h1{
+		text-align:center;
+	}
+	/*記事end*/
+}
+
 
 .clear_both{
   clear: both;

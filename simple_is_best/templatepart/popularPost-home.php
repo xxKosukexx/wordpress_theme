@@ -15,7 +15,7 @@
                               <?php if(has_post_thumbnail()) : ?>
                                 <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo the_title(); ?>">
                               <?php else : ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.png" alt="No Image">
+                                <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.jpg" alt="No Image">
                               <?php endif; ?>
                               <div class="ei-title">
                                   <h2><?php echo get_the_date() ?></h2>
@@ -39,7 +39,7 @@
                       <?php if(has_post_thumbnail()) : ?>
                         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo the_title(); ?>">
                       <?php else : ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.png" alt="No Image">
+                        <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.jpg" alt="No Image">
                       <?php endif; ?>
                       <?php $popular_count++; ?>
                     </li>

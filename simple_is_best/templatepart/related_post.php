@@ -1,10 +1,13 @@
 <?php
 //表示中の記事のカテゴリーと同じカテゴリの記事を取得して、表示する。
 $post_id = get_the_ID();
+$cat_id = 0;
 foreach((get_the_category()) as $cat) {
   $cat_id = $cat->cat_ID ;
   break ;
 }
+
+
 query_posts(
   array(
     'cat' => $cat_id,
@@ -19,7 +22,7 @@ if(have_posts()) :
         <?php if(has_post_thumbnail()) : ?>
           <?php the_post_thumbnail(); ?>
         <?php else : ?>
-          <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.png" alt="No Image">
+          <img src="<?php echo get_template_directory_uri(); ?>/image/NoImage.jpg" alt="No Image">
         <?php endif; ?>
         <h1><?php echo get_the_title(); ?></h1>
         <?php the_excerpt(); ?>

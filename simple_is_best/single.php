@@ -1,13 +1,12 @@
-
 <?php
   //ページのアクセス数をカウントする
   if( !is_user_logged_in() && !is_bot() ) { set_post_views( get_the_ID() ); }
 ?>
 
 <?php get_header(); ?>
-<div id="post">
+<div class="main-area">
   <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-    <article id="article">
+    <article id="post">
       <div id="title">
         <h1><?php echo the_title(); ?></h1>
       </div>
@@ -38,7 +37,6 @@
           <?php echo nl2br(get_the_author_meta('description')); ?>
         </div>
       </div>
-      <p class='clear_both'></p>
       <div id="comment_form">
         <?php comments_template(); ?>
       </div>
@@ -49,7 +47,7 @@
 
   <?php
   //サイドバーを読み込む
-  get_sidebar();
+  //get_sidebar();
    ?>
   <div class="float-clear"></div>
 

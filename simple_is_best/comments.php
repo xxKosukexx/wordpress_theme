@@ -10,6 +10,19 @@
         );
       wp_list_comments($args); ?>
     </ol>
+    <?php
+      if(get_comment_pages_count() > 1):
+        //ページネーションを表示する?>
+        <div id="comment_pagenation">
+          <?php paginate_comments_links(array(
+            'prev_text' => '<<',
+             'next_text' => '>>',
+             'mid_size' => 2
+           )); ?>
+        </div>
+
+
+    <?php endif; ?>
   <?php endif; ?>
   <hr>
 

@@ -195,7 +195,7 @@ function show_menu_css(){
   //テキストのデザインを設定する
   $('#show_icon_menu a').css({
     textDecoration: 'none',
-    fontSize: '18px',
+    //fontSize: '3em',
     color: '#F7FE2E',
     paddingRight: '8px',
     paddingLeft: '8px'
@@ -203,7 +203,7 @@ function show_menu_css(){
 
   //戻るメニューテキスト
   $('#show_icon_menu .back_menu').css({
-    fontSize: '18px',
+    //fontSize: '3em',
     color: '#F7FE2E',
     paddingRight: '8px',
     paddingLeft: '8px'
@@ -217,7 +217,7 @@ function show_menu_css(){
     borderBottom: 'solid 2px #F7FE2E',
     paddingTop: '5px',
     paddingBottom: '5px',
-    listStyle: 'none'
+    listStyle: 'none',
   });
 
   $('#show_icon_menu > ul').css({
